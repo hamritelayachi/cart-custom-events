@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Shop by he.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <header>
+            <h1 class="title">Phone Shop</h1>
+            <span class="cart-count">0</span>
+        </header>
+
+        <main>
+            <section class="phones">
+                <h2>Pick your model</h2>
+                <div class="models">
+                    <div class="model" data-name="iPhone 18 Pro" data-price="1099">
+                        <div class="detail">
+                            <h3 class="model-name">iPhone 18 Pro</h3>
+                            <span class="model-price">$1099</span>
+                        </div>
+                        <button class="add-btn">Add to cart</button>
+                    </div>
+
+                    <div class="model" data-name="Pixel 8" data-price="749">
+                        <div class="detail">
+                            <h3 class="model-name">Pixel 8</h3>
+                            <span class="model-price">$749</span>
+                        </div>
+                        <button class="add-btn">Add to cart</button>
+                    </div>
+
+                    <div class="model" data-name="Galaxy S24" data-price="649">
+                        <div class="detail">
+                            <h3 class="model-name">Galaxy S24</h3>
+                            <span class="model-price">$649</span>
+                        </div>
+                        <button class="add-btn">Add to cart</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cart">
+                <h2>Your cart</h2>
+                <ul class="cart-items"></ul>
+
+                <div class="cart-total">
+                    <h2>Total</h2>
+                    <span class="total">$0</span>
+                </div>
+
+                <button class="clear">Clear Cart</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
