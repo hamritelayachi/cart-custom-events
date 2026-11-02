@@ -1,0 +1,238 @@
+/* ---------- Design tokens ---------- */
+:root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --ink: #14202b;
+    --muted: #5b6b7a;
+    --line: #d5dce3;
+    --accent: #0e7c66;
+    --accent-dark: #0a5f4e;
+    --danger: #b3261e;
+
+    --radius: 14px;
+    --radius-sm: 8px;
+    --gap: 1.5rem;
+
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ---------- Layout ---------- */
+.main-wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: var(--gap);
+    align-items: start;
+}
+
+/* ---------- Cart count badge ---------- */
+.cart-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.6rem;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Phone list ---------- */
+.phones > h2,
+.cart > h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.models {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.model {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.model-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.model-price {
+    display: block;
+    margin-top: 0.15rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.add-btn {
+    padding: 0.6rem 1.1rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.add-btn:hover {
+    background: var(--accent-dark);
+}
+
+.add-btn:active {
+    transform: translateY(1px);
+}
+
+/* ---------- Cart ---------- */
+.cart {
+    position: sticky;
+    top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Pure-CSS empty state: shows only while the <ul> has no children */
+.cart-items:empty::before {
+    content: "Your cart is empty. Add a phone to get started.";
+    display: block;
+    padding: 0.5rem 0 1rem;
+    color: var(--muted);
+}
+
+.cart .cart-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+}
+
+.cart .cart-total h2 {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.total {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+.clear {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--muted);
+    font-weight: 600;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.clear:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 760px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .cart {
+        position: static;
+    }
+
+    .model {
+        flex-wrap: wrap;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
