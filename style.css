@@ -175,6 +175,18 @@ main {
     color: var(--muted);
 }
 
+.cart-items li p {
+    margin: 0;
+    font-weight: 600;
+}
+ 
+.cart-items li span {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+ 
+
 .cart .cart-total {
     display: flex;
     align-items: baseline;
